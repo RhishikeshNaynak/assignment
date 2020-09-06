@@ -1,0 +1,19 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.14.0",
+    "surge": "^0.21.6",
+    "vue-scrollable-tabs": "^1.0.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^2.1.0"
+  }
+}
