@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <!-- ---------------------Search box------------------------- -->
-    <div
-      class="b-shadow flex m-5 h-20 p-6 md:mt-10 md:h-16 md:pt-4  rounded-lg text-2xl my-4"
-    >
+    <div class="b-shadow flex m-5 h-20 p-6 md:mt-10 md:h-16 md:pt-4 rounded-lg text-2xl my-4">
       <img class="h-10 object-contain" src="/location.svg" alt="location" />
       <input
         type="text"
@@ -17,10 +15,7 @@
       </div>
     </div>
     <!-- -----------------------------------Horizontal tabs------------------------------------------------ -->
-    <div
-      v-if="typeof weather.main != 'undefined'"
-      class="flex m-5 text-2xl md:mx-10 text-bold scrolltabs"
-    >
+    <div v-if="typeof weather.main != 'undefined'" class="flex m-5 text-2xl text-bold scrolltabs">
       <span>
         <p>{{ dayfeatch() }}</p>
         <p>{{ Math.round(weather.main.temp) }}°c</p>
@@ -86,14 +81,9 @@
     </div>
     <!-- -------------------------------------Summary section------------------------------------------------------ -->
     <!-- ------------first part---------------- -->
-    <div
-      class="b-shadow md:mx-10 m-5 p-6 rounded-lg"
-      v-if="typeof weather.main != 'undefined'"
-    >
+    <div class="b-shadow md:mx-10 m-5 p-6 rounded-lg" v-if="typeof weather.main != 'undefined'">
       <div class="flex mx-10">
-        <div class="text-6xl font-bold">
-          {{ Math.round(weather.main.temp) }}°c
-        </div>
+        <div class="text-6xl font-bold">{{ Math.round(weather.main.temp) }}°c</div>
         <div v-if="weather.main.temp >= 25">
           <img class="mx-10 mt-3 h-20" src="/haze.svg" alt="haze" />
         </div>
@@ -108,7 +98,7 @@
       <div class="h-40">barchart</div>
 
       <div class="flex text-xl font-bold justify-center">
-        <div class="w-1/2 mr-3  p-3 bg-blue-100">
+        <div class="w-1/2 mr-3 p-3 bg-blue-100">
           Pressure
           <br />
           {{ weather.main.pressure }} hps
@@ -121,18 +111,18 @@
       </div>
       <!-- -----------------------third part------------------------------------- -->
       <div class="flex mt-5 text-xl font-bold justify-center">
-        <div class="w-1/2 md:ml-16  p-3 ">
+        <div class="w-1/2 md:ml-16 p-3">
           Sunrise
           <br />
           {{ Math.round(weather.sys.sunset) }}
         </div>
-        <div class="w-1/2 md:ml-32  p-3 ">
+        <div class="w-1/2 md:ml-32 p-3">
           Sunset
           <br />
           {{ Math.round(weather.sys.sunrise) }}
         </div>
       </div>
-      <img class=" w-full object-contain " src="/sunset.png" alt="sunset" />
+      <img class="w-full object-contain" src="/sunset.png" alt="sunset" />
     </div>
   </div>
 </template>
@@ -145,7 +135,7 @@ export default {
       api_key: "333936b8790448d4c54576684dd46876",
       url_base: "https://api.openweathermap.org/data/2.5/",
       query: "",
-      weather: {}
+      weather: {},
     };
   },
   methods: {
@@ -154,7 +144,7 @@ export default {
         fetch(
           `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
         )
-          .then(res => {
+          .then((res) => {
             return res.json();
           })
           .then(this.setResults);
@@ -173,12 +163,12 @@ export default {
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"
+        "Saturday",
       ];
       let day = days[d.getDay()];
       return `${day} `;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -208,7 +198,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 650px) {
   div.scrolltabs {
     background-color: #ffff;
 
@@ -218,7 +208,7 @@ export default {
   div.scrolltabs span {
     color: black;
     text-align: center;
-    padding: 20px;
+    padding: 45px;
     text-decoration: none;
   }
 
